@@ -86,7 +86,7 @@ fqUCAwEAAQ==
 
 Annie en se reveillant le matin trouve encore un message sur l'ordinateur de son copain, sauf que là il est chiffré, avec la clé publique de Robert... 
 
-Le message est illisible, elle décide faire un hexdump dessus pour voir à quoi ça ressemble:
+Le message est illisible, elle décide de faire un hexdump dessus pour voir à quoi ça ressemble:
 
 ```
 0000000 d037 7d68 24de 570b 5317 27aa d7be 86a8
