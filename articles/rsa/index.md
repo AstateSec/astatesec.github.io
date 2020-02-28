@@ -74,7 +74,7 @@ Enfait, vous ne devrez pas faire ça.. La clé est beaucoup trop courte et on pe
 
 Immaginons un scénario, reprennons Annie, Robert et Michel.
 
-Robert et Michel ont reussi à convaincre Annie que l'histoir du "Je t'aime" n'étais qu'une blague, Annie demanda cependant la clé publique de Robert son copain. Il accepta en se disant "Hahaha, de toute façon on ne peux pas casser RSA et il faut ma clé privée pour déchiffrer les messages de Michel". Sauf que les clé publique et privée de Robert sont trop courtes.
+Robert et Michel ont reussi à convaincre Annie que l'histoire du "Je t'aime" n'étais qu'une blague, Annie demanda cependant la clé publique de Robert son copain. Il accepta en se disant "Hahaha, de toute façon on ne peux pas casser RSA et il faut ma clé privée pour déchiffrer les messages de Michel". Sauf que les clé publique et privée de Robert sont trop courtes.
 
 Clé publique de Robert: 
 ```
