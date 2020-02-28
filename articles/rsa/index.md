@@ -125,7 +125,8 @@ Et notre e c'est 65537
 Enfait on va essayer de trouver les p et q à partir de n (si celui-ci est trop grand, ça sera impossible)
 
 On va juste mettre notre chiffre en décimal avec ruby :
-``` astate@sec:~$ irb 
+```
+astate@sec:~$ irb 
 irb(main):001:0> 0xB7ECEF5EB8ABB3CD5B1C6BF12B9B807AF572E232E867847EA5
 => 1154519247829685809469889775025194060140524275470441627549349
 irb(main):002:0> 
