@@ -40,3 +40,48 @@ Celà génère tout simplement une clé privée, et pour la clé publique on va 
 ```
 openssl rsa -in key.pem -outform PEM -pubout -out public.pem
 ```
+
+Pour chiffrer un message:
+```
+openssl -rsault -encrypt -pubin -inkey public.pem -in crypto.txt -out crypto.enc
+```
+
+Dans mon cas:
+```astate@sec:~$ openssl genrsa -out key.pem 100
+Generating RSA private key, 100 bit long modulus
+..++++++++++++++++++++++++++++++++++
+.++++++++++++++++++++++++++++++++++
+e is 65537 (0x010001)
+astate@sec:~$ cat key.pem
+-----BEGIN RSA PRIVATE KEY-----
+MFICAQACDQuQTGzMW4J0xgM4OX8CAwEAAQINALoZk91lAukP0NOjAQIHA2lwQF7G
+cQIHA2OlrMNW7wIGWegeGCNhAgcBH5QYMR6tAgcCqnJlVH0l
+-----END RSA PRIVATE KEY-----
+astate@sec:~$ openssl rsa -in key.pem -outform PEM -pubout -out public.pem
+writing RSA key
+astate@sec:~$ cat public.pem
+-----BEGIN PUBLIC KEY-----
+MCgwDQYJKoZIhvcNAQEBBQADFwAwFAINC5BMbMxbgnTGAzg5fwIDAQAB-----BEGIN PUBLIC KEY-----
+MCgwDQYJKoZIhvcNAQEBBQADFwAwFAINC5BMbMxbgnTGAzg5fwIDAQAB
+-----END PUBLIC KEY-----
+-----END PUBLIC KEY-----
+astate@sec:~$ 
+```
+Enfait, vous ne devrez pas faire ça.. La clé est beaucoup trop courte et on peut la cracker "par factorisation", voyons ça !
+
+## Craquer RSA par factorisation !
+
+Immaginons un scénario, reprennons Annie, Robert et Michel.
+
+Robert et Michel ont reussi à convaincre Annie que l'histoir du "Je t'aime" n'étais qu'une blague, Annie demanda cependant la clé publique de Robert son copain. Il accepta en se disant "Hahaha, de toute façon on ne peux pas casser RSA et il faut ma clé privée pour déchiffrer les messages de Michel". Sauf que les clé publique et privée de Robert sont trop courtes.
+
+Clé publique de Robert: 
+```-----BEGIN PUBLIC KEY-----
+MCgwDQYJKoZIhvcNAQEBBQADFwAwFAINC5BMbMxbgnTGAzg5fwIDAQAB
+-----END PUBLIC KEY-----
+```
+
+Rappelez vous la clé publique c'est (e, n) et la clé privé c'est (d, n), il suffit donc de trouver d pour que Annie puisse lire tout les messages de Michel..
+
+Annie en se reveillant le matin trouve encore un message sur le bureau de son copain, sauf que là il est chiffrer, avec la clé publique de Robert... 
+
