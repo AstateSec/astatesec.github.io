@@ -10,7 +10,7 @@ Pour que ça sois plus clair avec la cryptographie asymétrique je vous propose 
 
 ## Et RSA dans tout ça ? 
 
-Eh bien passons au cher sujet ! Comment fonctionne RSA ? Alors on va faire ça en étape, reprennons Robert qui faisais ça pair clé publique/privée, disons que c'était du RSA.. Comment avait il fais pour génerer ses clé : 
+Eh bien passons au cher sujet ! Comment fonctionne RSA ? Alors on va faire ça en étape, reprennons Robert qui faisait sa pair clé publique/privée, disons que c'était du RSA.. Comment avait il fais pour génerer ses clé : 
 
 ```
 1. D'abord, il choisis deux nombre premier qu'on nomme par convention p et q
