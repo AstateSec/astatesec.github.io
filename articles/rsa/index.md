@@ -139,7 +139,7 @@ q = 1101238229399779097627028780293
 
 C'est bon ! Tout est fais Annie décide d'écrire un script en python pour retrouver la clé privée (je voulais le faire en ruby mais dommage, ça marchais pas :( )
 
-Je suppose que si vous avez dejas fais du python, vous avez surement utiliser gmpy, sinon vous pouvez l'installer via ```sudo pip3 install gmpy```. Annie aura aussi besoin de la librairie Crypto, elle est par défaut installé
+Je suppose que si vous avez déjà fais du python, vous avez surement utiliser gmpy, sinon vous pouvez l'installer via ```sudo pip3 install gmpy```. Annie aura aussi besoin de la librairie Crypto, elle est par défaut installé
 
 Voici le script de Annie pour retrouver la clé privée (le code est commenté, vous ne devriez pas avoir de problème à comprendre)
 
