@@ -171,7 +171,7 @@ print(str(key.exportKey()))
 
 ![Like a Boss](image.png)
 
-Voilà ! Doonc il nous reste plus qu'a remmettre en place un peu:
+Voilà ! Donc il nous reste plus qu'a remmettre en place un peu:
 On passe à ça
 ```
 -----BEGIN RSA PRIVATE KEY-----
