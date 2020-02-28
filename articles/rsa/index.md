@@ -94,7 +94,7 @@ Le message est illisible, elle décide faire un hexdump dessus pour voir à quoi
 0000019
 ```
 
-Annie est convaincu que ce message est bizarre, que contient il ! Elle dois trouver cette clé privé ! 
+Annie est convaincue que ce message est bizarre, que contient il ! Elle dois trouver cette clé privé ! 
 
 Rappelez vous la clé publique c'est (e, n) et la clé privé c'est (d, n), il suffit donc de trouver d pour que Annie puisse lire tout les messages de Michel..
 
