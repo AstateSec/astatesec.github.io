@@ -140,5 +140,57 @@ Je suppose que si vous avez dejas fais du python, vous avez surement utiliser gm
 
 Voici le script de Annie pour retrouver la clé privée (le code est commenté, vous ne devriez pas avoir de problème à comprendre)
 
+```python
+from Crypto.PublicKey import RSA
+from math import *
+import gmpy
+
+# p et q, cracké par factorisation via factodb
+p = 1048382826719471131832915989793
+q = 1101238229399779097627028780293
+
+# n = p*q
+n = 1154519247829685809469889775025194060140524275470441627549349
+
+# Le phi
+phi = (p-1)*(q-1)
+
+# Notre exposant de chiffrement
+e = 65537
+
+# Et enfin le d, ce qu'on cherchait ;-)
+d = int(gmpy.invert(e, phi))
+
+# On recolle le tout et on print la clé privée
+key = RSA.construct((n, e, d))
+print(str(key.exportKey()))
+```
+
+![Like a Boss](image.png)
+
+Voilà ! Doonc il nous reste plus qu'a remmettre en place un peu:
+On passe de ça
+```b'-----BEGIN RSA PRIVATE KEY-----\nMIGKAgEAAhoAt+zvXrirs81bHGvxK5uAevVy4jLoZ4R+pQIDAQABAhkeDSR/QYUs\nd50vY6OboYbrkl+Fi7bR3foBAg0NO4Hy5EmIYtdXchUhAg0N5krpxPdvKAl4YnUF\nAg0J1rpLuJQ4NY36NhghAg0EV+Uq3XiwTGOBMcr9Ag0Jpj2woMxUH4elpRf5\n-----END RSA PRIVATE KEY-----'
+```
+à ça 
+```
+-----BEGIN RSA PRIVATE KEY-----
+MIGKAgEAAhoAt+zvXrirs81bHGvxK5uAevVy4jLoZ4R+pQIDAQABAhkeDSR/QYUs
+d50vY6OboYbrkl+Fi7bR3foBAg0N5krpxPdvKAl4YnUFAg0NO4Hy5EmIYtdXchUh
+Ag0EV+Uq3XiwTGOBMcr9Ag0J1rpLuJQ4NY36NhghAg0Dw4L8rwZMJs2WtGep
+-----END RSA PRIVATE KEY-----
+```
+(Google -> RSA key beautifier)
+
+Annie mais tout ça dans key.pem et utilise une dernière fois, elle retient son soufle :
+```openssl rsautl -decrypt -inkey key.pem -in crypto.enc -out crypto.out```
+Elle a à enfin le courage de faire un ```cat crypto.out```
 
 
+Elle cours vers la cuisine, prend un couteau, retrouve Michel et Robert en train de jouer à la Xbox au salon, elle les tue, coupe leurs oreilles, les lance dans la poubelle puis se suicide ...
+
+Morale de l'Histoire: Si vous êtes homosexuel, utiliser des clé publique/privée RSA assez longue ..
+
+Sur ce je vous laisse ! A plus ! Si vous avez besoin de me contacter:
+Twitter: @AstateSec
+Discord: Astate#4251
