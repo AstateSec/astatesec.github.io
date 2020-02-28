@@ -169,10 +169,7 @@ print(str(key.exportKey()))
 ![Like a Boss](image.png)
 
 Voilà ! Doonc il nous reste plus qu'a remmettre en place un peu:
-On passe de ça
-```b'-----BEGIN RSA PRIVATE KEY-----\nMIGKAgEAAhoAt+zvXrirs81bHGvxK5uAevVy4jLoZ4R+pQIDAQABAhkeDSR/QYUs\nd50vY6OboYbrkl+Fi7bR3foBAg0NO4Hy5EmIYtdXchUhAg0N5krpxPdvKAl4YnUF\nAg0J1rpLuJQ4NY36NhghAg0EV+Uq3XiwTGOBMcr9Ag0Jpj2woMxUH4elpRf5\n-----END RSA PRIVATE KEY-----'
-```
-à ça 
+On passe à ça
 ```
 -----BEGIN RSA PRIVATE KEY-----
 MIGKAgEAAhoAt+zvXrirs81bHGvxK5uAevVy4jLoZ4R+pQIDAQABAhkeDSR/QYUs
@@ -182,13 +179,14 @@ Ag0EV+Uq3XiwTGOBMcr9Ag0J1rpLuJQ4NY36NhghAg0Dw4L8rwZMJs2WtGep
 ```
 (Google -> RSA key beautifier)
 
-Annie mais tout ça dans key.pem et utilise une dernière fois, elle retient son soufle :
+Annie met tout ça dans key.pem et utilise une dernière fois openssl puis cat, elle retient son soufle :
 ```openssl rsautl -decrypt -inkey key.pem -in crypto.enc -out crypto.out```
 Elle a à enfin le courage de faire un ```cat crypto.out```
 
 
 Elle cours vers la cuisine, prend un couteau, retrouve Michel et Robert en train de jouer à la Xbox au salon, elle les tue, coupe leurs oreilles, les lance dans la poubelle puis se suicide ...
 
+Triste fin .. (Je vous ai dit que je kiff bien ça). La dernière commande de Annie fut cat crypto.out...
 Morale de l'Histoire: Si vous êtes homosexuel, utiliser des clé publique/privée RSA assez longue ..
 
 Sur ce je vous laisse ! A plus ! Si vous avez besoin de me contacter:
