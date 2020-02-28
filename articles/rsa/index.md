@@ -126,8 +126,19 @@ On va juste mettre notre chiffre en décimal avec ruby :
 ``` astate@sec:~$ irb 
 irb(main):001:0> 0xB7ECEF5EB8ABB3CD5B1C6BF12B9B807AF572E232E867847EA5
 => 1154519247829685809469889775025194060140524275470441627549349
-irb(main):002:0> ``` 
+irb(main):002:0> 
+``` 
 
+Très bien, maintenant il est facile de trouver p et q à partir de factordb: [Lien vers FactorDB](https://factordb.com) 
+On trouve donc:
+p = 1048382826719471131832915989793
+q = 1101238229399779097627028780293
+
+C'est bon ! Tout est fais Annie décide d'écrire un script en python pour retrouver la clé privée (je voulais le faire en ruby mais dommage, ça marchais pas :( )
+
+Je suppose que si vous avez dejas fais du python, vous avez surement utiliser gmpy, sinon vous pouvez l'installer via ```sudo pip3 install gmpy```. Annie aura aussi besoin de la librairie Crypto, elle est par défaut installé
+
+Voici le script de Annie pour retrouver la clé privée (le code est commenté, vous ne devriez pas avoir de problème à comprendre)
 
 
 
