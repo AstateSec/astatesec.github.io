@@ -43,7 +43,7 @@ openssl rsa -in key.pem -outform PEM -pubout -out public.pem
 
 Pour chiffrer un message:
 ```
-openssl -rsault -encrypt -pubin -inkey public.pem -in crypto.txt -out crypto.enc
+openssl rsautl -encrypt -pubin -inkey public.pem -in crypto.txt -out crypto.enc
 ```
 
 Dans mon cas:
@@ -77,11 +77,57 @@ Robert et Michel ont reussi à convaincre Annie que l'histoir du "Je t'aime" n'�
 
 Clé publique de Robert: 
 ```-----BEGIN PUBLIC KEY-----
-MCgwDQYJKoZIhvcNAQEBBQADFwAwFAINC5BMbMxbgnTGAzg5fwIDAQAB
+MDUwDQYJKoZIhvcNAQEBBQADJAAwIQIaALfs7164q7PNWxxr8SubgHr1cuIy6GeE
+fqUCAwEAAQ==
 -----END PUBLIC KEY-----
 ```
 
+Annie en se reveillant le matin trouve encore un message sur l'ordinateur de son copain, sauf que là il est chiffré, avec la clé publique de Robert... 
+
+Le message est illisible, elle décide faire un hexdump dessus pour voir à quoi ça ressemble:
+
+```
+0000000 d037 7d68 24de 570b 5317 27aa d7be 86a8
+0000010 7434 814a 1b80 2f66 003e               
+0000019
+```
+
+Annie est convaincu que ce message est bizarre, que contient il ! Elle dois trouver cette clé privé ! 
+
 Rappelez vous la clé publique c'est (e, n) et la clé privé c'est (d, n), il suffit donc de trouver d pour que Annie puisse lire tout les messages de Michel..
 
-Annie en se reveillant le matin trouve encore un message sur le bureau de son copain, sauf que là il est chiffrer, avec la clé publique de Robert... 
+Vous voyez sur la clé publique qu'on ne reconnais pas directement le e et le n, pour les retrouver on va encore utiliser openssl avec la commande suivante:
+```openssl rsa -in public.pem -pubin -text -modulus```
+
+Eh bien ça donne:
+
+```
+astate@sec:~$ openssl rsa -in public.pem -pubin -text -modulus
+Public-Key: (200 bit)
+Modulus:
+    00:b7:ec:ef:5e:b8:ab:b3:cd:5b:1c:6b:f1:2b:9b:
+    80:7a:f5:72:e2:32:e8:67:84:7e:a5
+Exponent: 65537 (0x10001)
+Modulus=B7ECEF5EB8ABB3CD5B1C6BF12B9B807AF572E232E867847EA5
+writing RSA key
+-----BEGIN PUBLIC KEY-----
+MDUwDQYJKoZIhvcNAQEBBQADJAAwIQIaALfs7164q7PNWxxr8SubgHr1cuIy6GeE
+fqUCAwEAAQ==
+-----END PUBLIC KEY-----
+astate@sec:~$ 
+
+```
+Alors notre n, c'est simplement B7ECEF5EB8ABB3CD5B1C6BF12B9B807AF572E232E867847EA5 (c'est de l'hexadécimal)
+Et notre e c'est 65537
+
+Enfait on va essayer de trouver les p et q à partir de n (si celui-ci est trop grand, ça sera impossible)
+
+On va juste mettre notre chiffre en décimal avec ruby :
+``` astate@sec:~$ irb 
+irb(main):001:0> 0xB7ECEF5EB8ABB3CD5B1C6BF12B9B807AF572E232E867847EA5
+=> 1154519247829685809469889775025194060140524275470441627549349
+irb(main):002:0> ``` 
+
+
+
 
