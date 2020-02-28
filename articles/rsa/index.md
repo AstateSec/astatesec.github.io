@@ -47,7 +47,8 @@ openssl rsautl -encrypt -pubin -inkey public.pem -in crypto.txt -out crypto.enc
 ```
 
 Dans mon cas:
-```astate@sec:~$ openssl genrsa -out key.pem 100
+```
+astate@sec:~$ openssl genrsa -out key.pem 100
 Generating RSA private key, 100 bit long modulus
 ..++++++++++++++++++++++++++++++++++
 .++++++++++++++++++++++++++++++++++
@@ -76,7 +77,8 @@ Immaginons un scénario, reprennons Annie, Robert et Michel.
 Robert et Michel ont reussi à convaincre Annie que l'histoir du "Je t'aime" n'étais qu'une blague, Annie demanda cependant la clé publique de Robert son copain. Il accepta en se disant "Hahaha, de toute façon on ne peux pas casser RSA et il faut ma clé privée pour déchiffrer les messages de Michel". Sauf que les clé publique et privée de Robert sont trop courtes.
 
 Clé publique de Robert: 
-```-----BEGIN PUBLIC KEY-----
+```
+-----BEGIN PUBLIC KEY-----
 MDUwDQYJKoZIhvcNAQEBBQADJAAwIQIaALfs7164q7PNWxxr8SubgHr1cuIy6GeE
 fqUCAwEAAQ==
 -----END PUBLIC KEY-----
