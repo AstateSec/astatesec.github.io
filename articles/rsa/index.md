@@ -15,7 +15,7 @@ Eh bien passons au cher sujet ! Comment fonctionne RSA ? Alors on va faire ça e
 ```
 1. D'abord, il choisis deux nombre premier qu'on nomme par convention p et q
 2. Il note n=p*q , n représente le "module de chiffrement"
-3. Il prend aussi Phi(n)=(p-1)*(q-1), c'est "l'indicatrice d'Euler" pour n
+3. Il prend aussi Phi(n)=(p-1)*(q-1), c'est "l'indicatrice d'Euler" pour n, cette fonction donne le nombre d'entier premier avec n entre 1 et n 
 4. Il prend un nombre e, premier avec Phi(n), c'est "l'exposant de chiffrement"
 5. Il prend le nombre d, inverse de e mod Phi(n) (mod correspond au modulo, reste de la division)
 
