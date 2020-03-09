@@ -6,7 +6,7 @@ Bonjour à tous ! Bienvenue sur mon modeste blog, avant de continuer une petite 
 
 ## Articles
 
-[ Crypto, introduction à RSA et comment le cracker par factorisation](https://astatesec.github.io/articles/rsa/)
+[ [Crypto\] Introduction à RSA et comment le cracker par factorisation](https://astatesec.github.io/articles/rsa/)
 
 ## Write-Up CTF
 
