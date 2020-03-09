@@ -1,6 +1,6 @@
 # Write Up du challenge bof de l'UTCTF
 
-J'ai participé au ctf UTCF avec ma team ret2school, durant ce ctf j'ai résolu de challenge (ouai .. c'est pas beaucoup mais je suis pas un gars de cétéfage). Je vous propose donc mon write-up pour le challenge bof
+J'ai participé au ctf UTCF avec ma team ret2school, durant ce ctf j'ai résolu deux challenge (ouai .. c'est pas beaucoup mais je suis pas un gars de cétéfage). Je vous propose donc mon write-up pour le challenge bof
 
 Ce challenge étais très très simple, il suffisais d'appeler une fonction "get_flag" avec rdi contenant 0xdeadbeef, on devais donc de faire un pop rdi; ret + deadbeef + adresse de get_flag
 
